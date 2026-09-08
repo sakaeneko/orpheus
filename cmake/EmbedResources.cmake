@@ -67,8 +67,9 @@ function(embed_all_dlls)
             "${LIB_DIR}/symsrv.dll"
             "${LIB_DIR}/tinylz4.dll"
             "${LIB_DIR}/vcruntime140.dll"
+            "${LIB_DIR}/leechcore_device_decant.dll"
         )
-        set(LIB_COUNT 7)
+        set(LIB_COUNT 8)
     else()
         set(LIB_DIR "${CMAKE_SOURCE_DIR}/resources/sos")
         set(LIB_EXT "so")
@@ -264,7 +265,7 @@ function(embed_all_dlls)
     if(WIN32)
         file(APPEND "${MASTER_HEADER}"
             "// Windows DLL resources\n"
-            "inline constexpr std::array<ResourceInfo, 7> lib_resources = {{\n"
+            "inline constexpr std::array<ResourceInfo, 8> lib_resources = {{\n"
             "    {\"vmm.dll\", vmm_dll, vmm_dll_size},\n"
             "    {\"leechcore.dll\", leechcore_dll, leechcore_dll_size},\n"
             "    {\"FTD3XX.dll\", ftd3xx_dll, ftd3xx_dll_size},\n"
@@ -272,6 +273,7 @@ function(embed_all_dlls)
             "    {\"symsrv.dll\", symsrv_dll, symsrv_dll_size},\n"
             "    {\"tinylz4.dll\", tinylz4_dll, tinylz4_dll_size},\n"
             "    {\"vcruntime140.dll\", vcruntime140_dll, vcruntime140_dll_size},\n"
+            "    {\"leechcore_device_decant.dll\", leechcore_device_decant_dll, leechcore_device_decant_dll_size},\n"
             "}};\n\n"
             "// Legacy aliases for backward compatibility\n"
             "inline constexpr auto& dll_resources = lib_resources;\n"
